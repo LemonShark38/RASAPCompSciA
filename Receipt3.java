@@ -1,5 +1,5 @@
-/*R
-eceipt 1 and 2 was kinda obvious.
+/*
+Receipt 1 and 2 was kinda obvious.
 So I'm uploading from receipt 3.
 Look at Lemon's code if you need 1 or 2.
 */
