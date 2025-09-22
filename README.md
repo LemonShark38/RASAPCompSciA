@@ -14,3 +14,4 @@ Thanks for using!
 
 ## License
 
+[GNU](https://www.gnu.org/licenses/)
