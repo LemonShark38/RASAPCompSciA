@@ -1,93 +1,90 @@
-/*
-Receipt 1 and 2 was kinda obvious.
-So I'm uploading from receipt 3.
-Look at Lemon's code if you need 1 or 2.
-*/
+import java.math;
 
-class Receipt3
+public class Receipt3
 {
-    public static String spaceadder(int num) //function for aligning "*"
-    {
-        String space = "";
-        int spacecount = 0;
+   public static void main(String [] args)
+   {
+      String HsNm = "Trevor Packer HS";
+      int orderNumber = (int)(Math.random()*100 + 1);
 
-        //counting length of integer part of number from parameter
-        for (int i = 0; i < 2; i++)
-        {
-            if (num / 10 != 0)
-            {
-                spacecount = i + 1;
-            }
+      //In these variables, P will be the prefix for Price
+      double PDrink = 1.50;
+      double PCandy = 1.25;
+      double PHotDog = 2.75;
+      double PHamburger = 3.50;
 
-            num /= 10;
-        }
+      //In these variables, N will be the prefix for Number
+      int NDrink = 1;
+      int NCandy = 0;
+      int NHotDog = 1;
+      int NHamburger = 1;
 
-        //determining how many space we need
-        if (spacecount == 0)
-        {
-            space = "   ";
-        }
-        if (spacecount == 1)
-        {
-            space = "  ";
-        }
-        if (spacecount == 2)
-        {
-            space = " ";
-        }
+      /* 
+      * These variables are what calculates the total price for each object.
+      * They work by multiplying NObject with PObject. 
+      * T will be the prefix for Total
+      */
+      double TDrink = PDrink * NDrink;
+      double TCandy = PCandy * NCandy;
+      double THotDog = PHotDog * NHotDog;
+      double THamburger = PHamburger * NHamburger;
 
-        return space;
-    }
-    public static void main(String[] args)
-    {
-        //constant variables
-        double taxrate = 20;
-        double drinkprice = 1.50;
-        double candyprice = 1.25;
-        double hdprice = 2.75;
-        double burgerprice = 3.5;
-        String schoolname = "RAS HS";
-        
-        //random numbers
-        int ordernumber = (int)(Math.random() * (100 - 1 + 1)) + 1;
-        int drinknum = (int)(Math.random() * (2 - 0 + 1));
-        int candynum = (int)(Math.random() * (2 - 0 + 1));
-        int hdnum = (int)(Math.random() * (2 - 0 + 1));
-        int burgernum = (int)(Math.random() * (2 - 0 + 1));
-        
-        //calculations
-        double totaldrink = drinkprice * drinknum;
-        double totalcandy = candyprice * candynum;
-        double totalhd = hdprice * hdnum;
-        double totalburger = burgerprice * burgernum;
+      /*
+      * The tax rate can be calculated by ((Tax amount)/(Subtotal)) x 100
+      * In this case, the tax rate is 4.90%
+      *
+      * We wont need a percentage, rather a number to multiply by to get the tax; So we do not need to do the "x100" part.
+      * We end up with 0.049
+      */
+      double taxRate = 0.049;
 
-        double subtotal = totaldrink + totalcandy + totalhd + totalburger;
-        double tax = subtotal * (taxrate / 100);
-        double total = subtotal + tax;
-        
-        //receipt
-        System.out.println("**************************************");
-        System.out.println("*                                    *");
-        System.out.println("*           " + schoolname + " Snack Bar         *");
-        System.out.println("*                                    *");
-        System.out.println("*     Drink ..........$" + String.format("%.2f", drinkprice) +  "          *");
-        System.out.println("*     Candy ..........$" + String.format("%.2f", candyprice) +  "          *");
-        System.out.println("*     Hot Dog ........$" + String.format("%.2f", hdprice) +     "          *");
-        System.out.println("*     Hamburger ......$" + String.format("%.2f", burgerprice) + "          *");
-        System.out.println("*                                    *");
-        System.out.println("**************************************");
-        System.out.println("*    Order Number: " + ordernumber + spaceadder(ordernumber) + "              *");
-        System.out.println("*                                    *");
-        System.out.println("*   QTY     ITEM        TOTAL        *");
-        System.out.println("**************************************");
-        System.out.println("*    " + drinknum +  "      Drink        " + String.format("%.2f", totaldrink) + spaceadder((int)totaldrink) +   "     *");
-        System.out.println("*    " + candynum +  "      Candy        " + String.format("%.2f", totalcandy) + spaceadder((int)totalcandy) +   "     *");
-        System.out.println("*    " + hdnum +     "      Hot Dog      " + String.format("%.2f", totalhd) + spaceadder((int)totalhd) +         "     *");
-        System.out.println("*    " + burgernum + "      Hamburger    " + String.format("%.2f", totalburger) + spaceadder((int)totalburger) + "     *");
-        System.out.println("**************************************");
-        System.out.println("*   Subtotal:    " + String.format("%.2f", subtotal) + spaceadder((int)subtotal) + "             *");
-        System.out.println("*   Tax:         " + String.format("%.2f", tax) + spaceadder((int)tax) +           "             *");
-        System.out.println("*   Total:       " + String.format("%.2f", total) + spaceadder((int)total) +       "             *");
-        System.out.println("**************************************");
-    }
+      //Rest of the calculations
+      double Subtotal = TDrink + TCandy + THotDog + THamburger;
+      double tax = Subtotal * taxRate;
+      double Total = Subtotal + tax;
+
+      /*
+       * this last step is optional.
+       * I am only doing this, as if there is a one digit number for orderNumber, the receipt looks off.
+       */
+      String orderNumberLine = "";
+      if(Math.abs(orderNumber) >= 0 && Math.abs(orderNumber) <= 9)
+      {
+        orderNumberLine = "*   Order Number    "+ orderNumber +"                *";
+      } 
+      else if(Math.abs(orderNumber) >= 10 && Math.abs(orderNumber) <= 99)
+      {
+        orderNumberLine = "*   Order Number    "+ orderNumber +"               *";
+      }
+      else if(Math.abs(orderNumber) >= 100 && Math.abs(orderNumber) <= 999)
+      {
+        orderNumberLine = "*   Order Number    "+ orderNumber +"              *";
+      }
+
+
+      System.out.println("**************************************");
+      System.out.println("*                                    *");
+      System.out.println("*              Welcome               *");
+      System.out.println("*     " + HsNm + " Snack Bar     *");
+      System.out.println("*                                    *");
+      System.out.println("*     Drink ..........$"+ String.format("%.2f" , PDrink) +"          *");                      
+      System.out.println("*     Candy ..........$" + String.format("%.2f" , PCandy) + "          *");     
+      System.out.println("*     Hot Dog ........$"+ String.format("%.2f" , PHotDog) +"          *");     
+      System.out.println("*     Hamburger ......$"+ String.format("%.2f" , PHamburger) +"          *");     
+      System.out.println("*                                    *");    
+      System.out.println("**************************************");
+      System.out.println(orderNumberLine);
+      System.out.println("*                                    *");
+      System.out.println("*   QTY      ITEM       TOTAL        *");
+      System.out.println("**************************************");
+      System.out.println("*    "+ NDrink +"       Drink      "+ String.format("%.2f" , TDrink) +"         *");
+      System.out.println("*    "+ NCandy +"       Candy      "+ String.format("%.2f" , TCandy) +"         *");
+      System.out.println("*    "+ NHotDog +"       Hot Dog    "+ String.format("%.2f" , THotDog) +"         *");
+      System.out.println("*    "+ NHamburger +"       Hamburger  "+ String.format("%.2f" , THamburger) +"         *");
+      System.out.println("**************************************");
+      System.out.println("*    Subtotal        "+ String.format("%.2f" , Subtotal) +"            *");
+      System.out.println("*    Tax             "+ String.format("%.2f" , tax) +"            *");
+      System.out.println("*    Total           "+ String.format("%.2f" , Total) +"            *");
+      System.out.println("**************************************");
+   }
 }
