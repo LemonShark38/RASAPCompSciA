@@ -1,6 +1,6 @@
 /*
  * this code is still in development
- * V1.0.0
+ * V1.0.1
  * 
  * DO NOT USE THIS CODE FOR THE ACTIVITY 4 ASSIGNMENT!!
  * (This code is still missing the abv name maker, you will not get full marks.)
@@ -16,15 +16,15 @@ public class Receipt4
         String text = "";
         if(type == 1) //case of ordernumber
         {
-            if(Math.abs((int) num) >= 0 && Math.abs((int) num) <= 9)
+            if(Math.abs(num) >= 0 && Math.abs(num) <= 9)
             {
                 text = "*   Order Number    "+ (int) num +"                *";
             } 
-            else if(Math.abs((int) num) >= 10 && Math.abs((int) num) <= 99)
+            else if(Math.abs(num) >= 10 && Math.abs(num) <= 99)
             {
                 text = "*   Order Number    "+ (int) num +"               *";
             }
-            else if(Math.abs((int) num) >= 100 && Math.abs((int) num) <= 999)
+            else if(Math.abs(num) >= 100 && Math.abs(num) <= 999)
             {
                 text = "*   Order Number    "+ (int) num +"              *";
             }
@@ -47,6 +47,10 @@ public class Receipt4
             else if(Math.abs((int) num) >= 100 && Math.abs((int) num) <= 999)
             {
                 text = "*    Subtotal        "+ String.format("%.2f" , num) +"          *";
+            }
+            else if(Math.abs((int) num) >= 1000 && Math.abs((int) num) <= 9999)
+            {
+                text = "*    Subtotal        "+ String.format("%.2f" , num) +"         *";
             }
             else
             {
@@ -88,6 +92,10 @@ public class Receipt4
             {
                 text = "*    Total           "+ String.format("%.2f" , num) +"          *";
             }
+            else if(Math.abs((int) num) >= 1000 && Math.abs((int) num) <= 9999)
+            {
+                text = "*    Total           "+ String.format("%.2f" , num) +"         *";
+            }
             else
             {
                 text = "*          Overflow Error            *";
@@ -116,6 +124,10 @@ public class Receipt4
                 {
                     text = "*    "+ QTY +"       Drink      "+ String.format("%.2f" , tot) +"       *";
                 }
+                else if(Math.abs((int) tot) >= 1000 && Math.abs((int) tot) <= 9999)
+                {
+                    text = "*    "+ QTY +"       Drink      "+ String.format("%.2f" , tot) +"      *";
+                }
                 else
                 {
                     text = "*          Overflow Error            *";
@@ -135,6 +147,10 @@ public class Receipt4
                 {
                     text = "*   "+ QTY +"       Drink      "+ String.format("%.2f" , tot) +"       *";
                 }
+                else if(Math.abs((int) tot) >= 1000 && Math.abs((int) tot) <= 9999)
+                {
+                    text = "*   "+ QTY +"       Drink      "+ String.format("%.2f" , tot) +"      *";
+                }
                 else
                 {
                     text = "*          Overflow Error            *";
@@ -153,6 +169,10 @@ public class Receipt4
                 else if(Math.abs((int) tot) >= 100 && Math.abs((int) tot) <= 999)
                 {
                     text = "*  "+ QTY +"       Drink      "+ String.format("%.2f" , tot) +"       *";
+                }
+                else if(Math.abs((int) tot) >= 1000 && Math.abs((int) tot) <= 9999)
+                {
+                    text = "*  "+ QTY +"       Drink      "+ String.format("%.2f" , tot) +"      *";
                 }
                 else
                 {
@@ -181,6 +201,10 @@ public class Receipt4
                 {
                     text = "*    "+ QTY +"       Candy      "+ String.format("%.2f" , tot) +"       *";
                 }
+                else if(Math.abs((int) tot) >= 1000 && Math.abs((int) tot) <= 9999)
+                {
+                    text = "*    "+ QTY +"       Candy      "+ String.format("%.2f" , tot) +"      *";
+                }
                 else
                 {
                     text = "*          Overflow Error            *";
@@ -200,6 +224,10 @@ public class Receipt4
                 {
                     text = "*   "+ QTY +"       Candy      "+ String.format("%.2f" , tot) +"       *";
                 }
+                else if(Math.abs((int) tot) >= 1000 && Math.abs((int) tot) <= 9999)
+                {
+                    text = "*   "+ QTY +"       Candy      "+ String.format("%.2f" , tot) +"      *";
+                }
                 else
                 {
                     text = "*          Overflow Error            *";
@@ -218,6 +246,10 @@ public class Receipt4
                 else if(Math.abs((int) tot) >= 100 && Math.abs((int) tot) <= 999)
                 {
                     text = "*  "+ QTY +"       Candy      "+ String.format("%.2f" , tot) +"       *";
+                }
+                else if(Math.abs((int) tot) >= 1000 && Math.abs((int) tot) <= 9999)
+                {
+                    text = "*  "+ QTY +"       Candy      "+ String.format("%.2f" , tot) +"      *";
                 }
                 else
                 {
@@ -246,6 +278,10 @@ public class Receipt4
                 {
                     text = "*    "+ QTY +"       Hot Dog    "+ String.format("%.2f" , tot) +"       *";
                 }
+                else if(Math.abs((int) tot) >= 1000 && Math.abs((int) tot) <= 9999)
+                {
+                    text = "*    "+ QTY +"       Hot Dog    "+ String.format("%.2f" , tot) +"      *";
+                }
                 else
                 {
                     text = "*          Overflow Error            *";
@@ -265,6 +301,10 @@ public class Receipt4
                 {
                     text = "*   "+ QTY +"       Hot Dog    "+ String.format("%.2f" , tot) +"       *";
                 }
+                else if(Math.abs((int) tot) >= 1000 && Math.abs((int) tot) <= 9999)
+                {
+                    text = "*   "+ QTY +"       Hot Dog    "+ String.format("%.2f" , tot) +"      *";
+                }
                 else
                 {
                     text = "*          Overflow Error            *";
@@ -283,6 +323,10 @@ public class Receipt4
                 else if(Math.abs((int) tot) >= 100 && Math.abs((int) tot) <= 999)
                 {
                     text = "*  "+ QTY +"       Hot Dog    "+ String.format("%.2f" , tot) +"       *";
+                }
+                else if(Math.abs((int) tot) >= 1000 && Math.abs((int) tot) <= 9999)
+                {
+                    text = "*  "+ QTY +"       Hot Dog    "+ String.format("%.2f" , tot) +"      *";
                 }
                 else
                 {
@@ -312,6 +356,10 @@ public class Receipt4
                 {
                     text = "*    "+ QTY +"       Hamburger  "+ String.format("%.2f" , tot) +"      *";
                 }
+                else if(Math.abs((int) tot) >= 1000 && Math.abs((int) tot) <= 9999)
+                {
+                    text = "*    "+ QTY +"       Hamburger  "+ String.format("%.2f" , tot) +"     *";
+                }
                 else
                 {
                     text = "*          Overflow Error            *";
@@ -331,6 +379,10 @@ public class Receipt4
                 {
                     text = "*   "+ QTY +"       Hamburger  "+ String.format("%.2f" , tot) +"       *";
                 }
+                else if(Math.abs((int) tot) >= 1000 && Math.abs((int) tot) <= 9999)
+                {
+                    text = "*   "+ QTY +"       Hamburger  "+ String.format("%.2f" , tot) +"      *";
+                }
                 else
                 {
                     text = "*          Overflow Error            *";
@@ -349,6 +401,10 @@ public class Receipt4
                 else if(Math.abs((int) tot) >= 100 && Math.abs((int) tot) <= 999)
                 {
                     text = "*  "+ QTY +"       Hamburger  "+ String.format("%.2f" , tot) +"       *";
+                }
+                else if(Math.abs((int) tot) >= 1000 && Math.abs((int) tot) <= 9999)
+                {
+                    text = "*  "+ QTY +"       Hamburger  "+ String.format("%.2f" , tot) +"      *";
                 }
                 else
                 {
