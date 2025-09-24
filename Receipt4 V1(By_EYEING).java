@@ -1,5 +1,5 @@
 /*
-Lemon's code is inefficient af. Use mine to learn.
+Lemon's code is over holy 500 lines. This code is for someone who dont want to read 500 code and make it simpler.
 */
 
 import java.util.Scanner;
@@ -11,7 +11,7 @@ class Receipt3
         String space = "";
         int spacecount = 0;
 
-        //counting length of integer part of number from parameter
+        //Calculate how many space needed for alignment
         for (int i = 0; i < 6; i++)
         {
             if (num / 10 != 0)
@@ -21,13 +21,13 @@ class Receipt3
 
             num /= 10;
         }
-
+        //if length is longer than spacenumber, giveup aligning
         if(spacecount > spacenumber)
         {
             spacecount = spacenumber;
         }
 
-        //determining how many space we need
+        //making string of desired number of spaces
         for(int i = 0; i < spacenumber - spacecount; i++)
         {
             space += " ";
@@ -35,8 +35,9 @@ class Receipt3
 
         return space;
     }
-    public static String initial(String SchoolName)
+    public static String initial(String SchoolName) //find initial of function
     {
+        //divide words by " " between words and get first letter of each words
         String[] words = SchoolName.split(" ");
         String InitialName = "";
 
@@ -49,6 +50,9 @@ class Receipt3
     }
     public static int wordcount(String SchoolName)
     {
+        //count the length of school initial and return value as int number which 
+        //have same length as initial so we can use it in function spaceadder().
+        //ex: initial = RAS | value = 100
         String[] words = SchoolName.split(" ");
         int WordCount = 1;
 
@@ -71,6 +75,7 @@ class Receipt3
         double hdprice = 2.75;
         double burgerprice = 3.5;
 
+        //asking for user input
         System.out.print("School name: ");
         String schoolname = scanner.nextLine();
         
