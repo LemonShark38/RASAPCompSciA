@@ -1,9 +1,8 @@
 /*
- * this code is still in development
- * V1.0.1
+ * Receipt4.java
+ * V1.1.0 (Final)
  * 
- * DO NOT USE THIS CODE FOR THE ACTIVITY 4 ASSIGNMENT!!
- * (This code is still missing the abv name maker, you will not get full marks.)
+ * By Lemon
  */
 
 import java.math;
@@ -11,6 +10,25 @@ import java.util.Scanner;
 
 public class Receipt4
 {
+    public static String nameAbbreviate(String name)
+    {
+        //this part will abbreviate the name!
+        String[] words = name.split("\\s+");
+        int NWords = words.length;
+
+        String temp = "";
+
+        for (int i = 0; i < NWords; i++)
+        {
+            String CurrentLetter = name.substring(0, 1);
+            int pos = name.indexOf(" ");
+            name = name.substring(pos+1);
+
+            temp = temp.concat(CurrentLetter);
+        }
+        return temp;
+    }
+
     public static String orderNumberLen(int type,double num)
     {
         String text = "";
@@ -426,12 +444,12 @@ public class Receipt4
 
         //in this part, we will check the padding for the receipt to look uniformed.
         System.out.println("Enter high school name:");
-        String HsNm = input.nextLine();
+        String HsNm = nameAbbreviate(input.nextLine());
         String snackBarTxt = " Snack Bar";
 
         if(HsNm.length() + snackBarTxt.length() > 36)
         {
-            System.out.println("Your School name is too long! Please abbreviate it.");
+            System.out.println("Your School name is too long! Please write something shorter!!");
             HsNm = input.nextLine();
         }
 
