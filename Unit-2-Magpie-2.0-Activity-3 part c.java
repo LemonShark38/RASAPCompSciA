@@ -40,7 +40,7 @@ class Main
        return -1;
     }
 
-    // This is the code you looking for part b
+    // This is the code you looking for part c
     private static String transformWouldYouLikeStatement(String statement)
     {
       int idx_You = findPhrase(statement, "You Like", 0);
